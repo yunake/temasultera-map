@@ -20,7 +20,7 @@ function AddNewMarker({ onSubmit, onClear }) {
     <div style={{ display: 'flex', flexDirection: 'column' }}>
 
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <button onClick={onClear}>Назад</button>
+        <button className="btn-back" onClick={onClear}>Back</button>
         <h2>Новий маркер: </h2>
       </div>
 
@@ -30,7 +30,7 @@ function AddNewMarker({ onSubmit, onClear }) {
         onChange={handleDescriptionChange}
       />
 
-      <button onClick={handleSubmit}>Добавити Маркер</button>
+      <button className="btn-new-marker" onClick={handleSubmit}>Add New Marker</button>
     </div>
   )
 }

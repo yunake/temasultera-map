@@ -21,15 +21,18 @@ function ChultMap({ onMapClick, markers, newMarkerPosition }) {
       center={[500, 700]}
       style={{ height: '100vh', width: '50vw' }}
       onClick={onMapClick}
-      // onViewportChange={e => {
-      //   debugger
-      // }}
+    // onViewportChange={e => {
+    //   debugger
+    // }}
     >
       <ImageOverlay url={chultMap} bounds={bounds} />
 
       {
         markers.map(marker =>
-          <Marker key={marker.id} position={marker.position}>
+          <Marker
+            key={marker.id}
+            position={marker.position}
+          >
             <Popup>
               <ReactMarkdown source={marker.description} />
             </Popup>
@@ -37,12 +40,11 @@ function ChultMap({ onMapClick, markers, newMarkerPosition }) {
         )
       }
 
-      {
-        newMarkerPosition &&
-        <Marker
-          position={newMarkerPosition}
-        />
-      }
+      <Marker
+        opacity={newMarkerPosition ? 1 : 0}
+        position={newMarkerPosition ? newMarkerPosition : [-10000, -1000]}
+      />
+
 
     </Map>
   )

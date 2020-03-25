@@ -1,10 +1,107 @@
+body {
+    background: #dddddd;
+}
+
 #panel {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 45vw;
+    background-color: #fafafa;
 
-  width: 45vw;
+    box-shadow: 0 0 10px #242424;
 
-  background-color: #eee;
+    padding-left: 5px;
+}
+
+button {
+    background: #00897b;
+    font-weight: 700;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+}
+
+button:hover {
+    background: #80cbc4;
+    color: #212121;
+    transition: 0.3s;
+}
+.btn-dlt {
+    background: #778899;
+    font-weight: 700;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px;
+
+    margin-left: auto;
+}
+
+.btn-back {
+    background-color: #fb8c00;
+}
+
+.btn-back:hover {
+    background-color: #ffb74d;
+}
+
+.btn-new-marker {
+    background-color: #dd604a;
+}
+
+.btn-new-marker:hover{
+    background-color: #ffab91;
+}
+
+h1 {
+    margin-left: 10px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+.leaflet-marker-icon {
+    filter: hue-rotate(320deg)
+}
+
+.leaflet-marker-icon:first-child {
+    filter: hue-rotate(160deg)
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 80vh;
+
+    overflow-y: scroll;
+}
+
+.marker-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s;
+    width: 90%;
+
+    margin: 10px 0;
+    padding: 5px 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #e0f2f1;
+}
+
+.marker-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }

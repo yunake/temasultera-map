@@ -6,16 +6,32 @@ function AllMarkers({ markers, onDelete }) {
 
   return (
     <div>
-      <h2>AllMarkers</h2>
+      <h2>All Markers</h2>
 
-      {
-        markers.map(marker =>
-          <div key={marker.id}>
-            <button onClick={handleDelete(marker)}>Delete</button>
-            <ReactMarkdown source={marker.description} />
-          </div>
-        )
-      }
+      <div className="card-wrapper">
+
+        {
+          markers.map(marker =>
+            <div
+              key={marker.id}
+              className="marker-card"
+            >
+              <button
+                className="btn-dlt"
+                onClick={handleDelete(marker)}
+              >
+                Delete
+              </button>
+
+              <div>
+                <ReactMarkdown source={marker.description} />
+              </div>
+            </div>
+          )
+        }
+
+      </div>
+
     </div>
   )
 }

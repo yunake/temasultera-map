@@ -44,7 +44,7 @@ function App({ loading, user }) {
         console.error(error)
       });
 
-    return () => unsubscribe()
+    return () => { unsubscribe() }
   }, [])
 
   if (!user && tab !== navigation[1].tab)
@@ -88,7 +88,6 @@ function App({ loading, user }) {
 
   return (
     <div>
-
       <ChultMap
         onMapClick={handleMapClick}
         markers={markers}
