@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://www.yunak.eu/chult",
-    "dependencies": {
+  "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -24,7 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy-ey": "ssh v03.yunak.eu rm -rf /var/www/htdocs/chult/* && scp -r build/* v03.yunak.eu:/var/www/htdocs/chult"
   },
   "eslintConfig": {
     "extends": "react-app"
