@@ -21,7 +21,7 @@ function AddNewMarker({ onSubmit, onClear }) {
 
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <button className="btn-back" onClick={onClear}>Back</button>
-        <h2>Новий маркер: </h2>
+        <h2>New Marker: </h2>
       </div>
 
       <MdEditor
