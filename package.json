@@ -24,7 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy-ey": "ssh v03.yunak.eu rm -rf /var/www/htdocs/chult/* && scp -r build/* v03.yunak.eu:/var/www/htdocs/chult"
   },
   "eslintConfig": {
     "extends": "react-app"
