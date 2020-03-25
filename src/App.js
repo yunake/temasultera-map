@@ -13,8 +13,9 @@ import {
   storeMarker,
   deleteMarker,
   fetchMarkers,
+  parseMarkers
 } from './api'
-
+import DB, { createComponentWithAuth } from './api/firebase'
 
 const navigation = [
   {
@@ -27,21 +28,27 @@ const navigation = [
   },
 ]
 
-function App() {
+function App({ loading, user }) {
   const [tab, setTab] = useState(navigation[0].tab)
 
   const [markers, setMarkers] = useState([])
   const [newMarkerPosition, setNMP] = useState(null)
 
   useEffect(() => {
-    const fetch = async () => {
-      const markersFromDB = await fetchMarkers()
+    const unsubscribe = DB.collection('markers')
+      .onSnapshot(function (snapshot) {
+        const markersFromDB = parseMarkers(snapshot)
 
-      setMarkers(markersFromDB)
-    }
+        setMarkers(markersFromDB)
+      }, function (error) {
+        console.error(error)
+      });
 
-    fetch()
+    return () => unsubscribe()
   }, [])
+
+  if (!user && tab !== navigation[1].tab)
+    setTab(navigation[1].tab)
 
   const handleMapClick = useCallback((mapEvent) => {
     setNMP(mapEvent.latlng)
@@ -75,6 +82,10 @@ function App() {
       .then(setMarkers)
   }, [])
 
+  if (loading)
+    return <h2>Loading...</h2>
+
+
   return (
     <div>
 
@@ -90,7 +101,10 @@ function App() {
             navigation.map(route =>
               <button
                 key={route.tab}
-                onClick={() => setTab(route.tab)}
+                onClick={() => {
+                  setTab(route.tab)
+                  setNMP(null)
+                }}
               >
                 {route.title}
               </button>
@@ -99,7 +113,7 @@ function App() {
         </div>
 
         {
-          newMarkerPosition &&
+          user && newMarkerPosition &&
           <AddNewMarker
             onSubmit={onAddMarker}
             onClear={handleClearNewMarker}
@@ -125,4 +139,4 @@ function App() {
   );
 }
 
-export default App;
+export default createComponentWithAuth(App)

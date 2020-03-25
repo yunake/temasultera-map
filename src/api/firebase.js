@@ -1,4 +1,5 @@
 import * as firebase from 'firebase'
+import withFirebaseAuth from 'react-with-firebase-auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCbBfRISSy3q2qT9qD_p96CvkoCSq2KPDg",
@@ -11,16 +12,21 @@ const firebaseConfig = {
   measurementId: "G-0JJX22XY3V"
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// const databaseRef = firebase.database().ref();
+const firebaseAppAuth = firebaseApp.auth();
 
-// export const markersRef = databaseRef.child('markers')
+/** See the signature above to find out the available providers */
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
+};
+ 
+/** Create the FirebaseAuth component wrapper */
+export const createComponentWithAuth = withFirebaseAuth({
+  providers,
+  firebaseAppAuth,
+});
 
 const DB = firebase.firestore()
-
-export const COLLECTIONS = {
-  MARKERS: 'markers'
-}
 
 export default DB

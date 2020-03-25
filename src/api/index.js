@@ -34,3 +34,20 @@ export const fetchMarkers = async () => {
     alert(e)
   }
 }
+
+export const parseMarkers = (querySnapshot) => {
+  try {
+    // const querySnapshot = await DB.collection('markers').get()
+
+    const markers = []
+    querySnapshot.forEach(doc => {
+      const entity = doc.data()
+      markers.push({ fid: doc.id, ...entity })
+    })
+    console.log('MARKERS: ', markers)
+    return markers
+  } catch (e) {
+    console.error(e)
+    alert(e)
+  }
+}
