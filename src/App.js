@@ -13,7 +13,8 @@ import {
   storeMarker,
   deleteMarker,
   fetchMarkers,
-  parseMarkers
+  parseMarkers,
+  editMarker,
 } from './api'
 import DB, { createComponentWithAuth } from './api/firebase'
 
@@ -32,6 +33,7 @@ function App({ loading, user }) {
   const [tab, setTab] = useState(navigation[0].tab)
 
   const [markers, setMarkers] = useState([])
+
   const [newMarkerPosition, setNMP] = useState(null)
 
   useEffect(() => {
@@ -77,9 +79,20 @@ function App({ loading, user }) {
   }, [markers, newMarkerPosition])
 
   const onDeleteMarker = useCallback((marker) => {
-    deleteMarker(marker.fid)
+    const isConfirmed = window.confirm('Do you really want to delete this marker?')
+
+    if(isConfirmed) {
+      deleteMarker(marker.fid)
       .then(fetchMarkers)
       .then(setMarkers)
+    }
+
+  }, [])
+
+  const onEditMarker = useCallback((marker) => {
+    editMarker(marker)
+    .then(fetchMarkers)
+    .then(setMarkers)
   }, [])
 
   if (loading)
@@ -124,6 +137,7 @@ function App({ loading, user }) {
           <AllMarkers
             markers={markers}
             onDelete={onDeleteMarker}
+            onEdit={onEditMarker}
           />
         }
 

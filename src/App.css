@@ -62,6 +62,22 @@ button:hover {
     background-color: #ffab91;
 }
 
+.btn-delete {
+    background-color: #ba68c8;
+}
+
+.btn-delete:hover {
+    background-color: #ce93d8;
+}
+
+.btn-update {
+    background-color: #4caf50;
+}
+
+.btn-update:hover {
+    background-color: #66bb6a;
+}
+
 h1 {
     margin-left: 10px;
 }
@@ -83,7 +99,7 @@ h2 {
     flex-direction: column;
     align-items: center;
 
-    height: 80vh;
+    height: 75vh;
 
     overflow-y: scroll;
 }
@@ -100,9 +116,34 @@ h2 {
     justify-content: space-between;
     /* flex-direction: column; */
 
-    background-color: #e0f2f1;
+    background-color: #b2dfdb;
 }
 
 .marker-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#search {
+    display: flex;
+    align-items: center;
+
+    margin: 20px 10px;
+    padding: 20px 10px;
+
+    background: #4db6ac;
+}
+
+#search h4 {
+    margin: 0;
+}
+
+#search button.btn-dlt {
+    margin: 0;
+}
+
+#search input {
+    margin: 0 20px;
+
+    height: 20px;
+    width: 80%;
 }

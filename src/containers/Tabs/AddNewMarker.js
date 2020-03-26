@@ -1,10 +1,7 @@
 import React, { useState, useCallback } from 'react';
-
-import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite'
 
-
-const mdParser = new MarkdownIt(/* Markdown-it options */);
+import mdParser from '../../markdown'
 
 
 function AddNewMarker({ onSubmit, onClear }) {

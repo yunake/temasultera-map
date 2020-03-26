@@ -51,3 +51,12 @@ export const parseMarkers = (querySnapshot) => {
     alert(e)
   }
 }
+
+export const editMarker = async ({ fid, ...marker }) => {
+  try {
+    await DB.collection('markers').doc(fid).update(marker)
+  } catch (e) {
+    console.error(e)
+    alert(e)
+  }
+}
