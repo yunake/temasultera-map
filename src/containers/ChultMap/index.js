@@ -12,7 +12,6 @@ const bounds = [[0, 0], [Math.round(1499 * 0.8), Math.round(1107 * 0.8)]];
 function ChultMap({ onMapClick, markers, newMarkerPosition }) {
 
   return (
-
     <Map
       id="map"
       crs={L.CRS.Simple}
@@ -44,8 +43,6 @@ function ChultMap({ onMapClick, markers, newMarkerPosition }) {
         opacity={newMarkerPosition ? 1 : 0}
         position={newMarkerPosition ? newMarkerPosition : [-10000, -1000]}
       />
-
-
     </Map>
   )
 }
