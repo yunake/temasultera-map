@@ -7,7 +7,8 @@ import mdParser from '../../markdown'
 import chultMap from './map.jpg'
 
 
-const bounds = [[0, 0], [Math.round(1499 * 0.8), Math.round(1107 * 0.8)]];
+//const bounds = [[0, 0], [Math.round(1499 * 0.8), Math.round(1107 * 0.8)]];
+const bounds = [[0, 0], [Math.round(825 * 0.8), Math.round(1100 * 0.8)]];
 
 function ChultMap({ onMapClick, markers, newMarkerPosition }) {
 
