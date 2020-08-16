@@ -4,7 +4,7 @@ import './App.css'
 import 'react-markdown-editor-lite/lib/index.css';
 
 
-import ChultMap from './containers/ChultMap';
+import ChultMap from './containers/Map';
 import AddNewMarker from './containers/Tabs/AddNewMarker';
 import AllMarkers from './containers/Tabs/AllMarkers';
 import SignIn from './containers/Tabs/SignIn';
