@@ -64,8 +64,8 @@ function App({ loading, user }) {
     const newMarker = {
       id: Date.now(),
       description: newMarkerDescription,
-      position: newMarkerPosition
-      //// TODO: add user email here
+      position: newMarkerPosition,
+      user: user.email
     }
 
     setMarkers([...markers, newMarker])
