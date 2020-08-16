@@ -65,6 +65,7 @@ function App({ loading, user }) {
       id: Date.now(),
       description: newMarkerDescription,
       position: newMarkerPosition
+      //// TODO: add user email here
     }
 
     setMarkers([...markers, newMarker])
