@@ -18,7 +18,7 @@ function ChultMap({ onMapClick, markers, newMarkerPosition }) {
       crs={L.CRS.Simple}
       maxZoom={24}
       zoom={0}
-      center={[700, 400]}
+      center={[200, 400]}
       style={{ height: '100vh', width: '50vw' }}
       onClick={onMapClick}
     // onViewportChange={e => {
