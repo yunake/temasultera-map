@@ -10,6 +10,11 @@ import chultMap from './map.jpg'
 //const bounds = [[0, 0], [Math.round(1499 * 0.8), Math.round(1107 * 0.8)]];
 const bounds = [[0, 0], [Math.round(825 * 0.8), Math.round(1100 * 0.8)]];
 
+const icon = new L.Icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon.png',
+    iconSize: [12, 21]
+})
+
 function ChultMap({ onMapClick, markers, newMarkerPosition }) {
 
   return (
@@ -32,6 +37,7 @@ function ChultMap({ onMapClick, markers, newMarkerPosition }) {
           <Marker
             key={marker.id}
             position={marker.position}
+            icon={icon}
           >
             <Popup>
               <div dangerouslySetInnerHTML={{ __html: mdParser.render(marker.description) }} />
@@ -43,6 +49,7 @@ function ChultMap({ onMapClick, markers, newMarkerPosition }) {
       <Marker
         opacity={newMarkerPosition ? 1 : 0}
         position={newMarkerPosition ? newMarkerPosition : [-10000, -1000]}
+        icon={icon}
       />
     </Map>
   )
