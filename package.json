@@ -2,7 +2,7 @@
   "name": "temasultera-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://temasultera.yunak.eu/",
+  "homepage": "https://temasultera.yunak.eu/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
